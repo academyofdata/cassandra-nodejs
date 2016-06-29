@@ -4,7 +4,7 @@ var port    =   process.env.PORT || 8080;
 
 
 const cassandra = require('cassandra-driver');
-const client = new cassandra.Client({ contactPoints: ['192.168.56.88'], queryOptions: { consistency: types.consistencies.quorum }  });
+const client = new cassandra.Client({ contactPoints: ['192.168.56.88'], queryOptions: { consistency: cassandra.types.consistencies.quorum }  });
 // ROUTES
 // ==============================================
 
