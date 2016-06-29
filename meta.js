@@ -1,6 +1,6 @@
 module.exports = function(app,cli){
 
-    app.get('/keyspace', function(req, res){
+    app.get('/meta/keyspace', function(req, res){
         console.log('get keyspaces')
         //depends on the version, in <3 was system.schema_keyspaces
         var q = "select * from system_schema.keyspaces"
@@ -14,7 +14,8 @@ module.exports = function(app,cli){
         })
         
     });
-    app.get('/table/:keyspace',function(req,res){
+    
+    app.get('/meta/table/:keyspace',function(req,res){
         console.log('get tables for',req.params.keyspace)
         if(req.params.keyspace != null) {
             var q = "select * from system_schema.tables where keyspace_name='"+req.params.keyspace+"'"
