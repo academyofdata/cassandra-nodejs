@@ -1,0 +1,27 @@
+{
+  "name": "cassandra-node",
+  "version": "0.0.1",
+  "description": "App to interface nodejs and cassandra",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/academyofdata/cassandra-nodejs.git"
+  },
+  "keywords": [
+    "node",
+    "cassandra"
+  ],
+  "author": "Felix",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/academyofdata/cassandra-nodejs/issues"
+  },
+  "homepage": "https://github.com/academyofdata/cassandra-nodejs#readme",
+  "dependencies": {
+    "cassandra-driver": "^3.1.0",
+    "express": "^4.14.0"
+  }
+}
