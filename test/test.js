@@ -19,19 +19,30 @@ describe('API REST',function(){
             //console.log(res.body.result)
             res.body.result.should.be.instanceof(Array)
             console.log(res.body.result.length + " users existing in the database")
+            var ndone = 0
             res.body.result.forEach(function(t){
                 request(config.baseUrl)
                 .get('/users/'+t.uid)
                 .expect(200)
                 .expect("Content-Type","application/json; charset=utf-8")
+                .expect(function(res){ 
+                    console.log(ndone +" done:"+t.uid)
+                    ndone ++
+                    if(ndone+1 == res.body.result.length) {
+                        done(null)
+                    }
+                })
+                    
             })
         })
         .end(function(e,r){
-            done(e)
+            if(e) { 
+                done(e)
+            }
         })
     })
 
-    var x = 10000
+    var x = 1
     
     
     for(i=0;i<x;i++){
