@@ -1,6 +1,7 @@
 module.exports = function(app,cli){
 
     app.get('/meta/keyspace', function(req, res){
+        //we could've used client.metadata.keyspaces
         console.log('get keyspaces')
         //depends on the version, in <3 was system.schema_keyspaces
         var q = "select * from system_schema.keyspaces"

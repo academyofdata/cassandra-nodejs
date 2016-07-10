@@ -1,7 +1,7 @@
-var express = require('express');
+var express = require('express')
+var bodyParser = require('body-parser')
 var app     = express();
 var port    =   process.env.PORT || 8080;
-
 
 const cassandra = require('cassandra-driver');
 const client = new cassandra.Client({ contactPoints: ['192.168.56.88'], queryOptions: { consistency: cassandra.types.consistencies.one }  });
@@ -20,10 +20,11 @@ var logFn = function (req, res, next) {
 };
 
 app.use(logFn);
-
+app.use(bodyParser.json())
 // we'll create our routes here
 require('./meta')(app,client)
 require('./data')(app,client)
+require('./user')(app,client)
 // START THE SERVER
 // ==============================================
 client.connect(function(err){
@@ -31,8 +32,8 @@ client.connect(function(err){
         console.log("Error connecting",err)
         process.exit()
     } else {
-        console.log("connected to cassandra")
+        console.log("connected to cassandra "+ new Date().getTime())
     }
 })
 app.listen(port);
-console.log('Started on port ' + port);
+console.log('Started on port ' + port + " at " + new Date().getTime());

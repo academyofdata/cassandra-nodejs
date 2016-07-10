@@ -1,0 +1,18 @@
+{
+  "name": "cjs-test-tool",
+  "version": "1.0.0",
+  "description": "Automated testing and data generation for Cassandra",
+  "main": "index.js",
+  "scripts": {
+    "test": "istanbul cover mocha -- --recursive -R spec -r should"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "minimatch": "^3.0.2",
+    "mocha": "^2.5.3",
+    "querystring": "^0.2.0",
+    "should": "^9.0.2",
+    "supertest": "^1.2.0"
+  }
+}
